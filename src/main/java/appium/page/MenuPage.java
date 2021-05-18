@@ -1,7 +1,6 @@
 package appium.page;
 
 import appium.core.DSL;
-import io.appium.java_client.MobileBy;
 
 public class MenuPage {
 
@@ -9,9 +8,5 @@ public class MenuPage {
 
     public void accessForm() {
         dsl.clickByText("Formulário");
-    }
-
-    public String getName() {
-        return dsl.getText(MobileBy.AccessibilityId("nome"));
     }
 }

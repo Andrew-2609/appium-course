@@ -10,4 +10,8 @@ public class FormPage {
     public void typeName(String name) {
         dsl.type(MobileBy.AccessibilityId("nome"), name);
     }
+
+    public String getName() {
+        return dsl.getText(MobileBy.AccessibilityId("nome"));
+    }
 }

@@ -31,7 +31,7 @@ public class FormTest {
     public void mustFillNameTextFieldTest() {
         formPage.typeName("Andrew Monteiro");
 
-        assertEquals("Andrew Monteiro", dsl.getText(MobileBy.AccessibilityId("nome")));
+        assertEquals("Andrew Monteiro", formPage.getName());
     }
 
     @Test
