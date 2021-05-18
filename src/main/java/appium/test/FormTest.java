@@ -1,22 +1,16 @@
 package appium.test;
 
-import appium.core.DSL;
 import appium.core.DriverFactory;
 import appium.page.FormPage;
 import appium.page.MenuPage;
-import io.appium.java_client.MobileBy;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class FormTest {
-
-    private final DSL dsl = new DSL();
-
     private final MenuPage menuPage = new MenuPage();
 
     private final FormPage formPage = new FormPage();
@@ -58,19 +52,19 @@ public class FormTest {
     @Test
     @DisplayName("Must perform the entire form registry")
     public void mustRegister() {
-        dsl.type(MobileBy.AccessibilityId("nome"), "Jogo");
+        formPage.typeName("Jogo");
 
-        dsl.selectCombo(MobileBy.AccessibilityId("console"), "PS4");
+        formPage.selectCombo("PS4");
 
-        dsl.click(MobileBy.AccessibilityId("check"));
-        dsl.click(MobileBy.AccessibilityId("switch"));
+        formPage.clickOnCheck();
+        formPage.clickOnSwitch();
 
-        dsl.clickByText("SALVAR");
+        formPage.save();
 
-        assertEquals("Nome: Jogo", dsl.getText(By.xpath("//android.widget.TextView[@text='Nome: Jogo']")));
-        assertEquals("Console: ps4", dsl.getText(By.xpath("//android.widget.TextView[@text='Console: ps4']")));
-        assertEquals("Switch: Off", dsl.getText(By.xpath("//android.widget.TextView[@text='Switch: Off']")));
-        assertEquals("Checkbox: Marcado", dsl.getText(By.xpath("//android.widget.TextView[@text='Checkbox: Marcado']")));
+        assertEquals("Nome: Jogo", formPage.getRegisteredName());
+        assertEquals("Console: ps4", formPage.getRegisteredConsole());
+        assertTrue(formPage.getRegisteredSwitch().endsWith("Off"));
+        assertTrue(formPage.getRegisteredCheckbox().endsWith("Marcado"));
     }
 
     @AfterEach

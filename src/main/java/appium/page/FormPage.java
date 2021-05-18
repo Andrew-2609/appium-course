@@ -39,4 +39,24 @@ public class FormPage {
     public boolean isSwitched() {
         return dsl.isChecked(MobileBy.AccessibilityId("switch"));
     }
+
+    public void save() {
+        dsl.clickByText("SALVAR");
+    }
+
+    public String getRegisteredName() {
+        return dsl.getText(By.xpath("//android.widget.TextView[starts-with(@text, 'Nome:')]"));
+    }
+
+    public String getRegisteredConsole() {
+        return dsl.getText(By.xpath("//android.widget.TextView[starts-with(@text, 'Console:')]"));
+    }
+
+    public String getRegisteredSwitch() {
+        return dsl.getText(By.xpath("//android.widget.TextView[starts-with(@text, 'Switch:')]"));
+    }
+
+    public String getRegisteredCheckbox() {
+        return dsl.getText(By.xpath("//android.widget.TextView[starts-with(@text, 'Checkbox:')]"));
+    }
 }
