@@ -2,6 +2,7 @@ package appium.test;
 
 import appium.core.DSL;
 import appium.core.DriverFactory;
+import appium.page.FormPage;
 import appium.page.MenuPage;
 import io.appium.java_client.MobileBy;
 import org.junit.jupiter.api.AfterEach;
@@ -18,6 +19,8 @@ public class FormTest {
 
     private final MenuPage menuPage = new MenuPage();
 
+    private final FormPage formPage = new FormPage();
+
     @BeforeEach
     public void setUp() {
         menuPage.accessForm();
@@ -26,7 +29,7 @@ public class FormTest {
     @Test
     @DisplayName("Must fill the Name text field in Form")
     public void mustFillNameTextFieldTest() {
-        dsl.type(MobileBy.AccessibilityId("nome"), "Andrew Monteiro");
+        formPage.typeName("Andrew Monteiro");
 
         assertEquals("Andrew Monteiro", dsl.getText(MobileBy.AccessibilityId("nome")));
     }
