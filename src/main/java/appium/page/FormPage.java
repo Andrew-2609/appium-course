@@ -23,4 +23,20 @@ public class FormPage {
     public String getComboValue() {
         return dsl.getText(By.xpath("//android.widget.Spinner/android.widget.TextView"));
     }
+
+    public void clickOnCheck() {
+        dsl.click(By.className("android.widget.CheckBox"));
+    }
+
+    public void clickOnSwitch() {
+        dsl.click(MobileBy.AccessibilityId("switch"));
+    }
+
+    public boolean isChecked() {
+        return dsl.isChecked(By.className("android.widget.CheckBox"));
+    }
+
+    public boolean isSwitched() {
+        return dsl.isChecked(MobileBy.AccessibilityId("switch"));
+    }
 }

@@ -45,14 +45,14 @@ public class FormTest {
     @Test
     @DisplayName("Must interact with Switch and Checkbox elements")
     public void mustInteractWithSwitchAndCheckboxTest() {
-        assertFalse(dsl.isChecked(By.className("android.widget.CheckBox")));
-        assertTrue(dsl.isChecked(MobileBy.AccessibilityId("switch")));
+        assertFalse(formPage.isChecked());
+        assertTrue(formPage.isSwitched());
 
-        dsl.click(By.className("android.widget.CheckBox"));
-        dsl.click(MobileBy.AccessibilityId("switch"));
+        formPage.clickOnCheck();
+        formPage.clickOnSwitch();
 
-        assertTrue(dsl.isChecked(By.className("android.widget.CheckBox")));
-        assertFalse(dsl.isChecked(MobileBy.AccessibilityId("switch")));
+        assertTrue(formPage.isChecked());
+        assertFalse(formPage.isSwitched());
     }
 
     @Test
