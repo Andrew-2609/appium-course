@@ -2,6 +2,7 @@ package appium.test;
 
 import appium.core.DSL;
 import appium.core.DriverFactory;
+import appium.page.MenuPage;
 import io.appium.java_client.MobileBy;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,9 +16,11 @@ public class FormTest {
 
     private final DSL dsl = new DSL();
 
+    private final MenuPage menuPage = new MenuPage();
+
     @BeforeEach
     public void setUp() {
-        dsl.clickByText("Formulário");
+        menuPage.accessForm();
     }
 
     @Test
