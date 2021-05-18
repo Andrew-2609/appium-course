@@ -39,9 +39,7 @@ public class FormTest {
     public void mustInteractWithComboTest() {
         formPage.selectCombo("Nintendo Switch");
 
-        String actualText = dsl.getText(By.xpath("//android.widget.Spinner/android.widget.TextView"));
-
-        assertEquals("Nintendo Switch", actualText);
+        assertEquals("Nintendo Switch", formPage.getComboValue());
     }
 
     @Test

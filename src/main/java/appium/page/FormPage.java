@@ -2,6 +2,7 @@ package appium.page;
 
 import appium.core.DSL;
 import io.appium.java_client.MobileBy;
+import org.openqa.selenium.By;
 
 public class FormPage {
 
@@ -17,5 +18,9 @@ public class FormPage {
 
     public void selectCombo(String value) {
         dsl.selectCombo(MobileBy.AccessibilityId("console"), value);
+    }
+
+    public String getComboValue() {
+        return dsl.getText(By.xpath("//android.widget.Spinner/android.widget.TextView"));
     }
 }
