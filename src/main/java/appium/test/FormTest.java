@@ -1,16 +1,15 @@
 package appium.test;
 
-import appium.core.DriverFactory;
+import appium.core.BaseTest;
 import appium.page.FormPage;
 import appium.page.MenuPage;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class FormTest {
+public class FormTest extends BaseTest {
     private final MenuPage menuPage = new MenuPage();
 
     private final FormPage formPage = new FormPage();
@@ -65,10 +64,5 @@ public class FormTest {
         assertEquals("Console: ps4", formPage.getRegisteredConsole());
         assertTrue(formPage.getRegisteredSwitch().endsWith("Off"));
         assertTrue(formPage.getRegisteredCheckbox().endsWith("Marcado"));
-    }
-
-    @AfterEach
-    public void tearDown() {
-        DriverFactory.kilLDriver();
     }
 }
