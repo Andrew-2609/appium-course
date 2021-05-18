@@ -1,12 +1,9 @@
 package appium.page;
 
-import appium.core.DSL;
+import appium.core.BasePage;
 
-public class MenuPage {
-
-    private final DSL dsl = new DSL();
-
+public class MenuPage extends BasePage {
     public void accessForm() {
-        dsl.clickByText("Formulário");
+        clickByText("Formulário");
     }
 }
