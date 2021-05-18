@@ -14,4 +14,8 @@ public class FormPage {
     public String getName() {
         return dsl.getText(MobileBy.AccessibilityId("nome"));
     }
+
+    public void selectCombo(String value) {
+        dsl.selectCombo(MobileBy.AccessibilityId("console"), value);
+    }
 }

@@ -37,7 +37,7 @@ public class FormTest {
     @Test
     @DisplayName("Must interact with Combo element")
     public void mustInteractWithComboTest() {
-        dsl.selectCombo(MobileBy.AccessibilityId("console"), "Nintendo Switch");
+        formPage.selectCombo("Nintendo Switch");
 
         String actualText = dsl.getText(By.xpath("//android.widget.Spinner/android.widget.TextView"));
 
