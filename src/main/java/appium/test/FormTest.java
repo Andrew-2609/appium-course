@@ -1,4 +1,4 @@
-package appium;
+package appium.test;
 
 import appium.core.DSL;
 import appium.core.DriverFactory;
