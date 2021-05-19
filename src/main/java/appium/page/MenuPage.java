@@ -10,4 +10,8 @@ public class MenuPage extends BasePage {
     public void accessSplash() {
         clickByText("Splash");
     }
+
+    public void accessAlert() {
+        clickByText("Alertas");
+    }
 }
