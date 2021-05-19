@@ -6,4 +6,8 @@ public class MenuPage extends BasePage {
     public void accessForm() {
         clickByText("Formulário");
     }
+
+    public void accessSplash() {
+        clickByText("Splash");
+    }
 }
