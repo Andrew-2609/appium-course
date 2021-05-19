@@ -3,6 +3,7 @@ package appium.test;
 import appium.core.BaseTest;
 import appium.page.FormPage;
 import appium.page.MenuPage;
+import io.appium.java_client.MobileBy;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -62,6 +63,20 @@ public class FormTest extends BaseTest {
         formPage.clickByText("OK");
 
         assertTrue(formPage.elementExistsByText("5/2/2003"));
+    }
+
+    @Test
+    @DisplayName("Must change the time")
+    public void mustChangeTime() {
+        formPage.clickByText("06:00");
+
+        formPage.click(MobileBy.AccessibilityId("16"));
+
+        formPage.click(MobileBy.AccessibilityId("20"));
+
+        formPage.clickByText("OK");
+
+        assertTrue(formPage.elementExistsByText("16:20"));
     }
 
     @Test
