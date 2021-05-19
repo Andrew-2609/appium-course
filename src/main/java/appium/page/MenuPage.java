@@ -14,4 +14,8 @@ public class MenuPage extends BasePage {
     public void accessAlert() {
         clickByText("Alertas");
     }
+
+    public void accessTabs() {
+        clickByText("Abas");
+    }
 }
