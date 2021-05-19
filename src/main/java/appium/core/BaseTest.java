@@ -30,4 +30,12 @@ public class BaseTest {
             System.out.println(e.getMessage());
         }
     }
+
+    public void waitFor(int milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

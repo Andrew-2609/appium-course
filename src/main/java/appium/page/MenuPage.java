@@ -18,4 +18,8 @@ public class MenuPage extends BasePage {
     public void accessTabs() {
         clickByText("Abas");
     }
+
+    public void accessAccordion() {
+        clickByText("Accordion");
+    }
 }
