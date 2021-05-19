@@ -1,6 +1,8 @@
 package appium.core;
 
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 
 import java.util.List;
@@ -36,5 +38,9 @@ public class BasePage {
     public boolean elementExistsByText(String text) {
         List<MobileElement> elements = getDriver().findElements(By.xpath("//*[@text='" + text + "']"));
         return elements.size() > 0;
+    }
+
+    public void tapOnCoordinates(int x, int y) {
+        new TouchAction<>(DriverFactory.getDriver()).press(PointOption.point(x, y)).perform();
     }
 }

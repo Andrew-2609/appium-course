@@ -4,6 +4,10 @@ import appium.core.BasePage;
 import org.openqa.selenium.By;
 
 public class AlertPage extends BasePage {
+    public void clickOnSimpleAlert() {
+        clickByText("ALERTA SIMPLES");
+    }
+
     public void clickOnConfirmAlert() {
         clickByText("ALERTA CONFIRM");
     }
@@ -22,5 +26,9 @@ public class AlertPage extends BasePage {
 
     public void quit() {
         clickByText("SAIR");
+    }
+
+    public void clickOutsideAlertBox() {
+        tapOnCoordinates(100, 150);
     }
 }

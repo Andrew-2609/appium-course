@@ -3,6 +3,7 @@ package appium.test;
 import appium.core.BaseTest;
 import appium.page.AccordionPage;
 import appium.page.MenuPage;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -13,11 +14,14 @@ public class AccordionTest extends BaseTest {
 
     private final AccordionPage accordionPage = new AccordionPage();
 
+    @BeforeEach
+    public void setUp() {
+        menuPage.accessAccordion();
+    }
+
     @Test
     @DisplayName("Must interact with the accordion's option")
     public void mustInteractWithAccordion() {
-        menuPage.accessAccordion();
-
         accordionPage.clickOnFirstOption();
 
         waitFor(1000);

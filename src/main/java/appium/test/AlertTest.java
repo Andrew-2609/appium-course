@@ -8,6 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class AlertTest extends BaseTest {
     private final MenuPage menuPage = new MenuPage();
@@ -20,6 +21,18 @@ public class AlertTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Must click on the outside of the Alert")
+    public void mustClickOutsideAlert() {
+        alertPage.clickOnSimpleAlert();
+
+        waitFor(1000);
+
+        alertPage.clickOutsideAlertBox();
+
+        assertFalse(alertPage.elementExistsByText("Pode clicar no OK ou fora da caixa para sair"));
+    }
+
+    @Test
     @DisplayName("Must confirm the Alert message box")
     public void mustConfirmAlertMessageBox() {
         alertPage.clickOnConfirmAlert();
@@ -28,6 +41,8 @@ public class AlertTest extends BaseTest {
         assertEquals("Confirma a operação?", alertPage.getConfirmAlertMessage());
 
         alertPage.confirm();
+
+        waitFor(1000);
 
         assertEquals("Confirmado", alertPage.getConfirmAlertMessage());
 
