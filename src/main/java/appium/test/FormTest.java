@@ -49,6 +49,22 @@ public class FormTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Must change the date")
+    public void mustChangeDate() {
+        formPage.clickByText("01/01/2000");
+
+        formPage.clickByText("2000");
+
+        formPage.clickByText("2003");
+
+        formPage.clickByText("5");
+
+        formPage.clickByText("OK");
+
+        assertTrue(formPage.elementExistsByText("5/2/2003"));
+    }
+
+    @Test
     @DisplayName("Must perform the entire form registry")
     public void mustRegister() {
         formPage.typeName("Jogo");
