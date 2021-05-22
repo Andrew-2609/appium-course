@@ -73,7 +73,22 @@ public class BasePage {
                 .waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
                 .moveTo(PointOption.point(x, endY))
                 .release()
-                .perform()
-        ;
+                .perform();
+    }
+
+    public void swipe(double start, double end) {
+        Dimension deviceDimension = getDriver().manage().window().getSize();
+
+        int startX = (int) (deviceDimension.getWidth() * start);
+        int endX = (int) (deviceDimension.getWidth() * end);
+
+        int y = deviceDimension.getHeight() / 2;
+
+        new TouchAction<>(getDriver())
+                .press(PointOption.point(startX, y))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+                .moveTo(PointOption.point(endX, y))
+                .release()
+                .perform();
     }
 }
