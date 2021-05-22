@@ -25,4 +25,12 @@ public class ClicksTest extends BaseTest {
 
         assertEquals("Clique Longo", clicksPage.getFieldText());
     }
+
+    @Test
+    @DisplayName("Must perform a double click")
+    public void mustPerformADoubleClick() {
+        clicksPage.doubleClick();
+
+        assertEquals("Duplo Clique", clicksPage.getFieldText());
+    }
 }
