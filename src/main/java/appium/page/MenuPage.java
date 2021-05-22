@@ -26,4 +26,8 @@ public class MenuPage extends BasePage {
     public void accessClicks() {
         clickByText("Cliques");
     }
+
+    public void accessWellHiddenOption() {
+        clickByText("Opção bem escondida");
+    }
 }

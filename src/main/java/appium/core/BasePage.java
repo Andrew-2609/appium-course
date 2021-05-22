@@ -2,10 +2,13 @@ package appium.core;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.InvalidElementStateException;
 
+import java.time.Duration;
 import java.util.List;
 
 import static appium.core.DriverFactory.getDriver;
@@ -41,11 +44,36 @@ public class BasePage {
         return elements.size() > 0;
     }
 
+    public String getConfirmAlertTitle() {
+        return getText(By.id("android:id/alertTitle"));
+    }
+
+    public String getConfirmAlertMessage() {
+        return getText(By.id("android:id/message"));
+    }
+
     public void tapOnCoordinates(int x, int y) {
         try {
             new TouchAction<>(DriverFactory.getDriver()).tap(PointOption.point(x, y)).perform();
         } catch (InvalidElementStateException exception) {
             System.out.println("A InvalidElementStateException was thrown.\nIf it is AlertTest, this probably happened for no known reason.");
         }
+    }
+
+    public void scroll(double start, double end) {
+        Dimension deviceDimension = getDriver().manage().window().getSize();
+
+        int x = deviceDimension.getWidth() / 2;
+
+        int startY = (int) (deviceDimension.getHeight() * start);
+        int endY = (int) (deviceDimension.getHeight() * end);
+
+        new TouchAction<>(getDriver())
+                .press(PointOption.point(x, startY))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+                .moveTo(PointOption.point(x, endY))
+                .release()
+                .perform()
+        ;
     }
 }
