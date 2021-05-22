@@ -2,7 +2,10 @@ package appium.page;
 
 import appium.core.BasePage;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.MobileElement;
 import org.openqa.selenium.By;
+
+import static appium.core.DriverFactory.getDriver;
 
 public class FormPage extends BasePage {
 
@@ -36,6 +39,17 @@ public class FormPage extends BasePage {
 
     public boolean isSwitched() {
         return isChecked(MobileBy.AccessibilityId("switch"));
+    }
+
+    public void clickOnSeekBar(double position) {
+        int delta = 50;
+        MobileElement seekBar = getDriver().findElement(MobileBy.AccessibilityId("slid"));
+
+        int initialX = seekBar.getLocation().x + delta;
+        int x = (int) (initialX + ((seekBar.getSize().width - 2 * delta) * position));
+        int y = seekBar.getLocation().y + (seekBar.getSize().height / 2);
+
+        tapOnCoordinates(x, y);
     }
 
     public void save() {

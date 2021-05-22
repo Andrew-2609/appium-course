@@ -80,6 +80,14 @@ public class FormTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Must interact with SeekBar element")
+    public void mustInteractWithSeekBar() {
+        formPage.clickOnSeekBar(0.65);
+
+        formPage.save();
+    }
+
+    @Test
     @DisplayName("Must perform the entire form registry")
     public void mustRegister() {
         formPage.typeName("Jogo");

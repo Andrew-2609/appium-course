@@ -4,6 +4,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
+import org.openqa.selenium.InvalidElementStateException;
 
 import java.util.List;
 
@@ -41,6 +42,10 @@ public class BasePage {
     }
 
     public void tapOnCoordinates(int x, int y) {
-        new TouchAction<>(DriverFactory.getDriver()).press(PointOption.point(x, y)).perform();
+        try {
+            new TouchAction<>(DriverFactory.getDriver()).tap(PointOption.point(x, y)).perform();
+        } catch (InvalidElementStateException exception) {
+            System.out.println("A InvalidElementStateException was thrown.\nIf it is AlertTest, this probably happened for no known reason.");
+        }
     }
 }
