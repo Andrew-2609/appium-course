@@ -20,18 +20,19 @@ public class SwipeTest extends BaseTest {
         WebDriverWait webDriverWait = new WebDriverWait(getDriver(), 10);
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Formulário']")));
 
-        menuPage.scroll(0.9, 0.1);
+        menuPage.scrollDown();
+
         menuPage.accessSwipe();
 
         assertTrue(menuPage.elementExistsByText("a esquerda"));
 
-        menuPage.swipe(0.9, 0.1);
+        menuPage.swipeRight();
         assertTrue(menuPage.elementExistsByText("você consegue"));
 
         menuPage.clickByText("›");
         assertTrue(menuPage.elementExistsByText("Chegar até o fim!"));
 
-        menuPage.swipe(0.1, 0.9);
+        menuPage.swipeLeft();
         assertTrue(menuPage.elementExistsByText("você consegue"));
 
         menuPage.clickByText("‹");

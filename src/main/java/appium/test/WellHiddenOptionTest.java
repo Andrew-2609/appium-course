@@ -21,7 +21,7 @@ public class WellHiddenOptionTest extends BaseTest {
 
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Formulário']")));
 
-        menuPage.scroll(0.9, 0.1);
+        menuPage.scrollDown();
 
         menuPage.accessWellHiddenOption();
 

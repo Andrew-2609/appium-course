@@ -76,6 +76,14 @@ public class BasePage {
                 .perform();
     }
 
+    public void scrollDown() {
+        scroll(0.9, 0.1);
+    }
+
+    public void scrollUp() {
+        scroll(0.1, 0.9);
+    }
+
     public void swipe(double start, double end) {
         Dimension deviceDimension = getDriver().manage().window().getSize();
 
@@ -90,5 +98,13 @@ public class BasePage {
                 .moveTo(PointOption.point(endX, y))
                 .release()
                 .perform();
+    }
+
+    public void swipeLeft() {
+        swipe(0.1, 0.9);
+    }
+
+    public void swipeRight() {
+        swipe(0.9, 0.1);
     }
 }
