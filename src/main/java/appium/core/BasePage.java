@@ -100,6 +100,20 @@ public class BasePage {
                 .perform();
     }
 
+    public void swipeAt(double start, double end, int y) {
+        Dimension deviceDimension = getDriver().manage().window().getSize();
+
+        int startX = (int) (deviceDimension.getWidth() * start);
+        int endX = (int) (deviceDimension.getWidth() * end);
+
+        new TouchAction<>(getDriver())
+                .press(PointOption.point(startX, y))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+                .moveTo(PointOption.point(endX, y))
+                .release()
+                .perform();
+    }
+
     public void swipeLeft() {
         swipe(0.1, 0.9);
     }
