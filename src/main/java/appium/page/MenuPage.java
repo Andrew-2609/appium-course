@@ -54,6 +54,10 @@ public class MenuPage extends BasePage {
         clickByText("Drag and drop");
     }
 
+    public void accessHybridSB() {
+        clickByText("SeuBarriga Híbrido");
+    }
+
     private void explicitlyWaitForFormElementToBePresent() {
         WebDriverWait webDriverWait = new WebDriverWait(getDriver(), 10);
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Formulário']")));
