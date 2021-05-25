@@ -1,6 +1,9 @@
 package appium.page;
 
 import appium.core.BasePage;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 
 import static appium.core.DriverFactory.getDriver;
@@ -32,5 +35,15 @@ public class RealAppPage extends BasePage {
 
     public void saveAccount() {
         clickByText("SALVAR");
+    }
+
+    public void selectAccount(String accountName) {
+        MobileElement element = getDriver().findElement(By.xpath("//*[@text='" + accountName + "']"));
+        int xCenterOfScreen = getDriver().manage().window().getSize().width / 2;
+        new TouchAction<>(getDriver()).longPress(PointOption.point(xCenterOfScreen, element.getCenter().y)).release().perform();
+    }
+
+    public void deleteAccount() {
+        clickByText("EXCLUIR");
     }
 }
