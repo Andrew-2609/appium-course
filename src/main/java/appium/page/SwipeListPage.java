@@ -14,19 +14,14 @@ public class SwipeListPage extends BasePage {
         return getDriver().findElement(By.xpath("//*[@text='" + text + "']/..")).getCenter().y;
     }
 
-    public void swipeFirstOptionLeft() {
-        int firstOptionYCoordinate = getOptionYCoordinateByText("Opção 1");
-        swipeAt(0.9, 0.1, firstOptionYCoordinate);
+    public void swipeOptionLeft(String option) {
+        int optionYCoordinate = getOptionYCoordinateByText(option);
+        swipeAt(0.9, 0.1, optionYCoordinate);
     }
 
-    public void swipeFourthOptionLeft() {
-        int fourthOptionYCoordinate = getOptionYCoordinateByText("Opção 4");
-        swipeAt(0.9, 0.1, fourthOptionYCoordinate);
-    }
-
-    public void swipeFifthOptionRight() {
-        int fifthOptionYCoordinate = getOptionYCoordinateByText("Opção 5 (-)");
-        swipeAt(0.1, 0.9, fifthOptionYCoordinate);
+    public void swipeOptionRight(String option) {
+        int optionYCoordinate = getOptionYCoordinateByText(option);
+        swipeAt(0.1, 0.9, optionYCoordinate);
     }
 
     public void clickOnOptionPlusMinusText(String option, String plusOrMinus) {

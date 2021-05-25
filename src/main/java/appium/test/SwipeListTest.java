@@ -17,15 +17,15 @@ public class SwipeListTest extends BaseTest {
     public void challengeSwipeList() {
         menuPage.accessSwipeList();
 
-        swipeListPage.swipeFirstOptionLeft();
+        swipeListPage.swipeOptionLeft("Opção 1");
 
         swipeListPage.clickOnOptionPlusMinusText("Opção 1", "+");
 
-        swipeListPage.swipeFourthOptionLeft();
+        swipeListPage.swipeOptionLeft("Opção 4");
 
         swipeListPage.clickOnOptionPlusMinusText("Opção 4", "-");
 
-        swipeListPage.swipeFifthOptionRight();
+        swipeListPage.swipeOptionRight("Opção 5 (-)");
 
         assertEquals("Opção 1 (+)", swipeListPage.getOptionText("Opção 1"));
         assertEquals("Opção 4 (-)", swipeListPage.getOptionText("Opção 4"));
