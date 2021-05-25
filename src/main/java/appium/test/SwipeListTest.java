@@ -5,11 +5,7 @@ import appium.page.MenuPage;
 import appium.page.SwipeListPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static appium.core.DriverFactory.getDriver;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SwipeListTest extends BaseTest {
@@ -19,11 +15,6 @@ public class SwipeListTest extends BaseTest {
     @Test
     @DisplayName("Must successfully complete the SwipeList challenge")
     public void challengeSwipeList() {
-        WebDriverWait webDriverWait = new WebDriverWait(getDriver(), 10);
-        webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Formulário']")));
-
-        menuPage.scrollDown();
-
         menuPage.accessSwipeList();
 
         swipeListPage.swipeFirstOptionLeft();
