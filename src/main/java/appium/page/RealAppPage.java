@@ -9,15 +9,15 @@ import org.openqa.selenium.By;
 import static appium.core.DriverFactory.getDriver;
 
 public class RealAppPage extends BasePage {
-    public void setName(String value) {
+    public void setLoginName(String value) {
         getDriver().findElement(By.xpath("//*[@text='Nome']")).sendKeys(value);
     }
 
-    public void setPassword(String value) {
+    public void setLoginPassword(String value) {
         getDriver().findElement(By.xpath("//*[@text='Senha']")).sendKeys(value);
     }
 
-    public void logIn() {
+    public void login() {
         clickByText("ENTRAR");
     }
 
@@ -45,5 +45,30 @@ public class RealAppPage extends BasePage {
 
     public void deleteAccount() {
         clickByText("EXCLUIR");
+    }
+
+    public void changeToTransactionsTab() {
+        clickByText("MOV...");
+    }
+
+    public void saveTransaction() {
+        clickByText("SALVAR");
+    }
+
+    public void setTransactionDescription(String value) {
+        getDriver().findElement(By.xpath("//*[@text='Descrição']")).sendKeys(value);
+    }
+
+    public void setTransactionInterested(String value) {
+        getDriver().findElement(By.xpath("//*[@text='Interessado']")).sendKeys(value);
+    }
+
+    public void setTransactionValue(String value) {
+        getDriver().findElement(By.xpath("//*[@text='Valor']")).sendKeys(value);
+    }
+
+    public void setTransactionAccount() {
+        clickByText("Selecione uma conta...");
+        clickByText("Conta para movimentacoes");
     }
 }

@@ -17,9 +17,9 @@ public class RealAppTest extends BaseTest {
     @BeforeEach
     public void setUp() {
         menuPage.accessNativeSB();
-        realAppPage.setName("andrew@email");
-        realAppPage.setPassword("senha");
-        realAppPage.logIn();
+        realAppPage.setLoginName("andrew@email");
+        realAppPage.setLoginPassword("senha");
+        realAppPage.login();
         realAppPage.resetData();
     }
 
@@ -61,5 +61,39 @@ public class RealAppTest extends BaseTest {
         assertTrue(menuPage.elementExistsByText("Conta em uso nas movimentações"));
         
         assertTrue(menuPage.elementExistsByText("Conta para movimentacoes"));
+    }
+
+    @Test
+    @DisplayName("Must make a valid account transaction")
+    public void mustMakeAValidAccountTransaction() {
+        realAppPage.changeToTransactionsTab();
+
+        realAppPage.saveTransaction();
+
+        assertTrue(menuPage.elementExistsByText("Descrição é um campo obrigatório"));
+
+        realAppPage.setTransactionDescription("Saque milionário");
+
+        realAppPage.saveTransaction();
+
+        assertTrue(menuPage.elementExistsByText("Interessado é um campo obrigatório"));
+
+        realAppPage.setTransactionInterested("Andrew");
+
+        realAppPage.saveTransaction();
+
+        assertTrue(menuPage.elementExistsByText("Valor é um campo obrigatório"));
+
+        realAppPage.setTransactionValue("1000000");
+
+        realAppPage.saveTransaction();
+
+        assertTrue(menuPage.elementExistsByText("Conta é um campo obrigatório"));
+
+        realAppPage.setTransactionAccount();
+
+        realAppPage.saveTransaction();
+
+        assertTrue(menuPage.elementExistsByText("Movimentação cadastrada com sucesso"));
     }
 }
