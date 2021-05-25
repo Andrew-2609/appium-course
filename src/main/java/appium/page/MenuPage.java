@@ -62,4 +62,8 @@ public class MenuPage extends BasePage {
         WebDriverWait webDriverWait = new WebDriverWait(getDriver(), 10);
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Formulário']")));
     }
+
+    public void accessNativeSB() {
+        clickByText("SeuBarriga Nativo");
+    }
 }
