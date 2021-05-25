@@ -36,6 +36,18 @@ public class RealAppTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Must not create an account with repeatedName")
+    public void mustNotCreateAnAccountWithRepeatedName() {
+        realAppPage.changeToAccountsTab();
+
+        realAppPage.setAccountName("Conta mesmo nome");
+
+        realAppPage.saveAccount();
+
+        assertTrue(menuPage.elementExistsByText("Problemas de comunicação"));
+    }
+
+    @Test
     @DisplayName("Must successfully delete an account")
     public void mustDeleteAnAccount() {
         realAppPage.changeToAccountsTab();
