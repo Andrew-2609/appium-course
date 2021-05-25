@@ -33,6 +33,8 @@ public class MenuPage extends BasePage {
     }
 
     public void accessWellHiddenOption() {
+        explicitlyWaitForFormElementToBePresent();
+        scrollDown();
         clickByText("Opção bem escondida");
     }
 
@@ -41,10 +43,13 @@ public class MenuPage extends BasePage {
     }
 
     public void accessSwipeList() {
-        WebDriverWait webDriverWait = new WebDriverWait(getDriver(), 10);
-        webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Formulário']")));
-
+        explicitlyWaitForFormElementToBePresent();
         scrollDown();
         clickByText("Swipe List");
+    }
+
+    private void explicitlyWaitForFormElementToBePresent() {
+        WebDriverWait webDriverWait = new WebDriverWait(getDriver(), 10);
+        webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Formulário']")));
     }
 }
