@@ -48,6 +48,12 @@ public class MenuPage extends BasePage {
         clickByText("Swipe List");
     }
 
+    public void accessDragAndDrop() {
+        explicitlyWaitForFormElementToBePresent();
+        scrollDown();
+        clickByText("Drag and drop");
+    }
+
     private void explicitlyWaitForFormElementToBePresent() {
         WebDriverWait webDriverWait = new WebDriverWait(getDriver(), 10);
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Formulário']")));
