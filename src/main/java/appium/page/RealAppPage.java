@@ -26,14 +26,6 @@ public class RealAppPage extends BasePage {
         clickByText("RESET");
     }
 
-    public void setAccountName(String value) {
-        type(By.xpath("//android.widget.EditText[@text='Conta']"), value);
-    }
-
-    public void saveAccount() {
-        clickByText("SALVAR");
-    }
-
     public void selectAccount(String accountName) {
         MobileElement element = getDriver().findElement(By.xpath("//android.widget.TextView[@text='" + accountName + "']"));
         new TouchAction<>(getDriver()).longPress(LongPressOptions.longPressOptions().withElement(ElementOption.element(element))).perform();

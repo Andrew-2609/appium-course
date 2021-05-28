@@ -3,6 +3,7 @@ package appium.test;
 import appium.core.BaseTest;
 import appium.page.MenuPage;
 import appium.page.RealAppPage;
+import appium.page.seuBarriga.SBAccountsPage;
 import appium.page.seuBarriga.SBMenuPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -15,6 +16,7 @@ public class RealAppTest extends BaseTest {
     private final MenuPage menuPage = new MenuPage();
     private final RealAppPage realAppPage = new RealAppPage();
     private final SBMenuPage sbMenuPage = new SBMenuPage();
+    private final SBAccountsPage sbAccountsPage = new SBAccountsPage();
 
     @BeforeEach
     public void setUp() {
@@ -30,9 +32,9 @@ public class RealAppTest extends BaseTest {
     public void mustCreateAValidAccount() {
         sbMenuPage.changeToAccountsTab();
 
-        realAppPage.setAccountName("Conta única");
+        sbAccountsPage.setAccountName("Conta única");
 
-        realAppPage.saveAccount();
+        sbAccountsPage.saveAccount();
 
         assertTrue(menuPage.elementExistsByText("Conta adicionada com sucesso"));
     }
@@ -42,9 +44,9 @@ public class RealAppTest extends BaseTest {
     public void mustNotCreateAnAccountWithRepeatedName() {
         sbMenuPage.changeToAccountsTab();
 
-        realAppPage.setAccountName("Conta mesmo nome");
+        sbAccountsPage.setAccountName("Conta mesmo nome");
 
-        realAppPage.saveAccount();
+        sbAccountsPage.saveAccount();
 
         assertTrue(menuPage.elementExistsByText("Problemas de comunicação"));
     }
