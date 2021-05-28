@@ -10,4 +10,8 @@ public class SBMenuPage extends BasePage {
     public void changeToTransactionsTab() {
         clickByText("MOV...");
     }
+
+    public void changeToResumeTab() {
+        clickByText("RESUMO");
+    }
 }

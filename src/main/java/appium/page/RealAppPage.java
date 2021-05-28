@@ -22,10 +22,6 @@ public class RealAppPage extends BasePage {
         clickByText("RESET");
     }
 
-    public void changeToResumeTab() {
-        clickByText("RESUMO");
-    }
-
     public void updateResume() {
         clickByText("ATUALIZAR");
     }
