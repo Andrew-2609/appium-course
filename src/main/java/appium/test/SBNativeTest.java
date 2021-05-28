@@ -2,7 +2,7 @@ package appium.test;
 
 import appium.core.BaseTest;
 import appium.page.MenuPage;
-import appium.page.RealAppPage;
+import appium.page.SBNativePage;
 import appium.page.seuBarriga.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class SBNativeTest extends BaseTest {
     private final MenuPage menuPage = new MenuPage();
-    private final RealAppPage realAppPage = new RealAppPage();
+    private final SBNativePage sbNativePage = new SBNativePage();
     private final SBMenuPage sbMenuPage = new SBMenuPage();
     private final SBAccountsPage sbAccountsPage = new SBAccountsPage();
     private final SBTransactionsPage sbTransactionsPage = new SBTransactionsPage();
@@ -23,10 +23,10 @@ public class SBNativeTest extends BaseTest {
     @BeforeEach
     public void setUp() {
         menuPage.accessNativeSB();
-        realAppPage.setLoginName("andrew@email");
-        realAppPage.setLoginPassword("senha");
-        realAppPage.login();
-        realAppPage.resetData();
+        sbNativePage.setLoginName("andrew@email");
+        sbNativePage.setLoginPassword("senha");
+        sbNativePage.login();
+        sbNativePage.resetData();
     }
 
     @Test
@@ -142,6 +142,6 @@ public class SBNativeTest extends BaseTest {
     @AfterEach
     public void tearDown() {
         sbMenuPage.changeToHomeTab();
-        realAppPage.resetData();
+        sbNativePage.resetData();
     }
 }

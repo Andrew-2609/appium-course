@@ -3,7 +3,7 @@ package appium.page;
 import appium.core.BasePage;
 import org.openqa.selenium.By;
 
-public class RealAppPage extends BasePage {
+public class SBNativePage extends BasePage {
     public void setLoginName(String value) {
         type(By.xpath("//*[@text='Nome']"), value);
     }
