@@ -11,4 +11,8 @@ public class SBAccountsPage extends BasePage {
     public void saveAccount() {
         clickByText("SALVAR");
     }
+
+    public void selectAccount(String accountName) {
+        longClick(By.xpath("//android.widget.TextView[@text='" + accountName + "']"));
+    }
 }

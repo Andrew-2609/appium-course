@@ -56,7 +56,7 @@ public class RealAppTest extends BaseTest {
     public void mustDeleteAnAccount() {
         sbMenuPage.changeToAccountsTab();
 
-        realAppPage.selectAccount("Conta mesmo nome");
+        sbAccountsPage.selectAccount("Conta mesmo nome");
 
         realAppPage.deleteAccount();
 
@@ -72,7 +72,7 @@ public class RealAppTest extends BaseTest {
 
         waitFor(2000);
 
-        realAppPage.selectAccount("Conta com movimentacao");
+        sbAccountsPage.selectAccount("Conta com movimentacao");
 
         realAppPage.deleteAccount();
 

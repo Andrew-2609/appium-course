@@ -22,10 +22,6 @@ public class RealAppPage extends BasePage {
         clickByText("RESET");
     }
 
-    public void selectAccount(String accountName) {
-        longClick(By.xpath("//android.widget.TextView[@text='" + accountName + "']"));
-    }
-
     public void deleteAccount() {
         clickByText("EXCLUIR");
     }
