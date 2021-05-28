@@ -22,10 +22,6 @@ public class RealAppPage extends BasePage {
         clickByText("RESET");
     }
 
-    public void deleteAccount() {
-        clickByText("EXCLUIR");
-    }
-
     public void changeToTransactionsTab() {
         clickByText("MOV...");
     }

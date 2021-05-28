@@ -58,7 +58,7 @@ public class RealAppTest extends BaseTest {
 
         sbAccountsPage.selectAccount("Conta mesmo nome");
 
-        realAppPage.deleteAccount();
+        sbAccountsPage.deleteAccount();
 
         assertTrue(menuPage.elementExistsByText("Conta excluída com sucesso"));
 
@@ -74,7 +74,7 @@ public class RealAppTest extends BaseTest {
 
         sbAccountsPage.selectAccount("Conta com movimentacao");
 
-        realAppPage.deleteAccount();
+        sbAccountsPage.deleteAccount();
 
         assertTrue(menuPage.elementExistsByText("Conta em uso nas movimentações"));
 
