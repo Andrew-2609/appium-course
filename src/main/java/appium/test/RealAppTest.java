@@ -5,6 +5,7 @@ import appium.page.MenuPage;
 import appium.page.RealAppPage;
 import appium.page.seuBarriga.SBAccountsPage;
 import appium.page.seuBarriga.SBMenuPage;
+import appium.page.seuBarriga.SBTransactionsPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,6 +18,7 @@ public class RealAppTest extends BaseTest {
     private final RealAppPage realAppPage = new RealAppPage();
     private final SBMenuPage sbMenuPage = new SBMenuPage();
     private final SBAccountsPage sbAccountsPage = new SBAccountsPage();
+    private final SBTransactionsPage sbTransactionsPage = new SBTransactionsPage();
 
     @BeforeEach
     public void setUp() {
@@ -86,31 +88,31 @@ public class RealAppTest extends BaseTest {
     public void mustMakeAValidAccountTransaction() {
         sbMenuPage.changeToTransactionsTab();
 
-        realAppPage.saveTransaction();
+        sbTransactionsPage.saveTransaction();
 
         assertTrue(menuPage.elementExistsByText("Descrição é um campo obrigatório"));
 
         realAppPage.setTransactionDescription("Saque milionário");
 
-        realAppPage.saveTransaction();
+        sbTransactionsPage.saveTransaction();
 
         assertTrue(menuPage.elementExistsByText("Interessado é um campo obrigatório"));
 
         realAppPage.setTransactionInterested("Andrew");
 
-        realAppPage.saveTransaction();
+        sbTransactionsPage.saveTransaction();
 
         assertTrue(menuPage.elementExistsByText("Valor é um campo obrigatório"));
 
         realAppPage.setTransactionValue("1000000");
 
-        realAppPage.saveTransaction();
+        sbTransactionsPage.saveTransaction();
 
         assertTrue(menuPage.elementExistsByText("Conta é um campo obrigatório"));
 
         realAppPage.setTransactionAccount();
 
-        realAppPage.saveTransaction();
+        sbTransactionsPage.saveTransaction();
 
         assertTrue(menuPage.elementExistsByText("Movimentação cadastrada com sucesso"));
     }
