@@ -98,7 +98,7 @@ public class RealAppTest extends BaseTest {
 
         assertTrue(menuPage.elementExistsByText("Interessado é um campo obrigatório"));
 
-        realAppPage.setTransactionInterested("Andrew");
+        sbTransactionsPage.setTransactionInterested("Andrew");
 
         sbTransactionsPage.saveTransaction();
 

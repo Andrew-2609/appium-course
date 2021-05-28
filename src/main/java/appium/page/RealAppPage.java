@@ -22,10 +22,6 @@ public class RealAppPage extends BasePage {
         clickByText("RESET");
     }
 
-    public void setTransactionInterested(String value) {
-        type(By.xpath("//*[@text='Interessado']"), value);
-    }
-
     public void setTransactionValue(String value) {
         type(By.xpath("//*[@text='Valor']"), value);
     }
