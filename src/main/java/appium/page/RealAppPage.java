@@ -3,7 +3,8 @@ package appium.page;
 import appium.core.BasePage;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
-import io.appium.java_client.touch.offset.PointOption;
+import io.appium.java_client.touch.LongPressOptions;
+import io.appium.java_client.touch.offset.ElementOption;
 import org.openqa.selenium.By;
 
 import static appium.core.DriverFactory.getDriver;
@@ -38,9 +39,8 @@ public class RealAppPage extends BasePage {
     }
 
     public void selectAccount(String accountName) {
-        MobileElement element = getDriver().findElement(By.xpath("//*[@text='" + accountName + "']"));
-        int xCenterOfScreen = getDriver().manage().window().getSize().width / 2;
-        new TouchAction<>(getDriver()).longPress(PointOption.point(xCenterOfScreen, element.getCenter().y)).release().perform();
+        MobileElement element = getDriver().findElement(By.xpath("//android.widget.TextView[@text='" + accountName + "']"));
+        new TouchAction<>(getDriver()).longPress(LongPressOptions.longPressOptions().withElement(ElementOption.element(element))).perform();
     }
 
     public void deleteAccount() {
@@ -70,5 +70,30 @@ public class RealAppPage extends BasePage {
     public void setTransactionAccount() {
         clickByText("Selecione uma conta...");
         clickByText("Conta para movimentacoes");
+    }
+
+    public void changeToResumeTab() {
+        clickByText("RESUMO");
+    }
+
+    public void updateResume() {
+        clickByText("ATUALIZAR");
+    }
+
+    public void swipeTransactionLeft(String transactionName) {
+        int transactionYCoordinate = getDriver().findElement(By.xpath("//*[@text='" + transactionName + "']/../..")).getCenter().y;
+        swipeAt(0.9, 0.1, transactionYCoordinate);
+    }
+
+    public void deleteTransaction() {
+        clickByText("Del");
+    }
+
+    public void changeToHomeTab() {
+        clickByText("HOME");
+    }
+
+    public void updateHomeBalance() {
+        scroll(0.2, 0.9);
     }
 }

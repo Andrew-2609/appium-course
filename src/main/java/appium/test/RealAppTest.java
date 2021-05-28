@@ -66,13 +66,15 @@ public class RealAppTest extends BaseTest {
     public void mustNotDeleteAnAccountInUse() {
         realAppPage.changeToAccountsTab();
 
-        realAppPage.selectAccount("Conta para movimentacoes");
+        waitFor(2000);
+
+        realAppPage.selectAccount("Conta com movimentacao");
 
         realAppPage.deleteAccount();
 
         assertTrue(menuPage.elementExistsByText("Conta em uso nas movimentações"));
-        
-        assertTrue(menuPage.elementExistsByText("Conta para movimentacoes"));
+
+        assertTrue(menuPage.elementExistsByText("Conta com movimentacao"));
     }
 
     @Test
@@ -107,5 +109,27 @@ public class RealAppTest extends BaseTest {
         realAppPage.saveTransaction();
 
         assertTrue(menuPage.elementExistsByText("Movimentação cadastrada com sucesso"));
+    }
+
+    @Test
+    @DisplayName("Must exclude a transaction and update the balance")
+    public void mustExcludeATransactionAndUpdateTheBalance() {
+        realAppPage.changeToResumeTab();
+
+        realAppPage.updateResume();
+
+        realAppPage.swipeTransactionLeft("Movimentacao para exclusao");
+
+        realAppPage.deleteTransaction();
+
+        assertTrue(menuPage.elementExistsByText("Movimentação removida com sucesso!"));
+
+        realAppPage.changeToHomeTab();
+
+        waitFor(2500);
+
+        realAppPage.updateHomeBalance();
+
+        assertFalse(menuPage.elementExistsByText("Conta para movimentacoes"));
     }
 }

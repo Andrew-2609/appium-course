@@ -58,12 +58,12 @@ public class MenuPage extends BasePage {
         clickByText("SeuBarriga Híbrido");
     }
 
+    public void accessNativeSB() {
+        clickByText("SeuBarriga Nativo");
+    }
+
     private void explicitlyWaitForFormElementToBePresent() {
         WebDriverWait webDriverWait = new WebDriverWait(getDriver(), 10);
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Formulário']")));
-    }
-
-    public void accessNativeSB() {
-        clickByText("SeuBarriga Nativo");
     }
 }
