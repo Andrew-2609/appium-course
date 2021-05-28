@@ -3,6 +3,7 @@ package appium.test;
 import appium.core.BaseTest;
 import appium.page.MenuPage;
 import appium.page.RealAppPage;
+import appium.page.seuBarriga.SBMenuPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class RealAppTest extends BaseTest {
     private final MenuPage menuPage = new MenuPage();
     private final RealAppPage realAppPage = new RealAppPage();
+    private final SBMenuPage sbMenuPage = new SBMenuPage();
 
     @BeforeEach
     public void setUp() {
@@ -26,7 +28,7 @@ public class RealAppTest extends BaseTest {
     @Test
     @DisplayName("Must create a valid account")
     public void mustCreateAValidAccount() {
-        realAppPage.changeToAccountsTab();
+        sbMenuPage.changeToAccountsTab();
 
         realAppPage.setAccountName("Conta única");
 
@@ -38,7 +40,7 @@ public class RealAppTest extends BaseTest {
     @Test
     @DisplayName("Must not create an account with repeatedName")
     public void mustNotCreateAnAccountWithRepeatedName() {
-        realAppPage.changeToAccountsTab();
+        sbMenuPage.changeToAccountsTab();
 
         realAppPage.setAccountName("Conta mesmo nome");
 
@@ -50,7 +52,7 @@ public class RealAppTest extends BaseTest {
     @Test
     @DisplayName("Must successfully delete an account")
     public void mustDeleteAnAccount() {
-        realAppPage.changeToAccountsTab();
+        sbMenuPage.changeToAccountsTab();
 
         realAppPage.selectAccount("Conta mesmo nome");
 
@@ -64,7 +66,7 @@ public class RealAppTest extends BaseTest {
     @Test
     @DisplayName("Must not delete an account in use")
     public void mustNotDeleteAnAccountInUse() {
-        realAppPage.changeToAccountsTab();
+        sbMenuPage.changeToAccountsTab();
 
         waitFor(2000);
 

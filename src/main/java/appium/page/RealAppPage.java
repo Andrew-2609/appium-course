@@ -26,10 +26,6 @@ public class RealAppPage extends BasePage {
         clickByText("RESET");
     }
 
-    public void changeToAccountsTab() {
-        clickByText("CONTAS");
-    }
-
     public void setAccountName(String value) {
         type(By.xpath("//android.widget.EditText[@text='Conta']"), value);
     }
