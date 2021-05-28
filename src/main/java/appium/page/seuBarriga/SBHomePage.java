@@ -1,2 +1,10 @@
-package appium.page.seuBarriga;public class SBHomePage {
+package appium.page.seuBarriga;
+
+import appium.core.BasePage;
+import org.openqa.selenium.By;
+
+public class SBHomePage extends BasePage {
+    public String getBalanceFromAccount(String accountName) {
+        return getText(By.xpath("//*[@text='" + accountName + "']/following-sibling::android.widget.TextView"));
+    }
 }
