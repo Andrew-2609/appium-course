@@ -22,10 +22,6 @@ public class RealAppPage extends BasePage {
         clickByText("RESET");
     }
 
-    public void changeToTransactionsTab() {
-        clickByText("MOV...");
-    }
-
     public void saveTransaction() {
         clickByText("SALVAR");
     }

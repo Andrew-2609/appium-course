@@ -6,4 +6,8 @@ public class SBMenuPage extends BasePage {
     public void changeToAccountsTab() {
         clickByText("CONTAS");
     }
+
+    public void changeToTransactionsTab() {
+        clickByText("MOV...");
+    }
 }

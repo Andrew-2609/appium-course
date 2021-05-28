@@ -84,7 +84,7 @@ public class RealAppTest extends BaseTest {
     @Test
     @DisplayName("Must make a valid account transaction")
     public void mustMakeAValidAccountTransaction() {
-        realAppPage.changeToTransactionsTab();
+        sbMenuPage.changeToTransactionsTab();
 
         realAppPage.saveTransaction();
 
