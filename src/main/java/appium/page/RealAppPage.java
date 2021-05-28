@@ -22,11 +22,6 @@ public class RealAppPage extends BasePage {
         clickByText("RESET");
     }
 
-    public void setTransactionAccount() {
-        clickByText("Selecione uma conta...");
-        clickByText("Conta para movimentacoes");
-    }
-
     public void changeToResumeTab() {
         clickByText("RESUMO");
     }

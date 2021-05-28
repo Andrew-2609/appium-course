@@ -110,7 +110,7 @@ public class RealAppTest extends BaseTest {
 
         assertTrue(menuPage.elementExistsByText("Conta é um campo obrigatório"));
 
-        realAppPage.setTransactionAccount();
+        sbTransactionsPage.setTransactionAccount();
 
         sbTransactionsPage.saveTransaction();
 

@@ -19,4 +19,9 @@ public class SBTransactionsPage extends BasePage {
     public void setTransactionValue(String value) {
         type(By.xpath("//*[@text='Valor']"), value);
     }
+
+    public void setTransactionAccount() {
+        clickByText("Selecione uma conta...");
+        clickByText("Conta para movimentacoes");
+    }
 }
