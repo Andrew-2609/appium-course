@@ -3,15 +3,13 @@ package appium.test;
 import appium.core.BaseTest;
 import appium.page.MenuPage;
 import appium.page.RealAppPage;
-import appium.page.seuBarriga.SBAccountsPage;
-import appium.page.seuBarriga.SBMenuPage;
-import appium.page.seuBarriga.SBTransactionsPage;
+import appium.page.seuBarriga.*;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class RealAppTest extends BaseTest {
     private final MenuPage menuPage = new MenuPage();
@@ -19,6 +17,8 @@ public class RealAppTest extends BaseTest {
     private final SBMenuPage sbMenuPage = new SBMenuPage();
     private final SBAccountsPage sbAccountsPage = new SBAccountsPage();
     private final SBTransactionsPage sbTransactionsPage = new SBTransactionsPage();
+    private final SBHomePage sbHomePage = new SBHomePage();
+    private final SBResumePage sbResumePage = new SBResumePage();
 
     @BeforeEach
     public void setUp() {
@@ -120,22 +120,28 @@ public class RealAppTest extends BaseTest {
     @Test
     @DisplayName("Must exclude a transaction and update the balance")
     public void mustExcludeATransactionAndUpdateTheBalance() {
-        realAppPage.changeToResumeTab();
+        assertEquals("534.00", sbHomePage.getBalanceFromAccount("Conta para saldo"));
 
-        realAppPage.updateResume();
+        sbMenuPage.changeToResumeTab();
 
-        realAppPage.swipeTransactionLeft("Movimentacao para exclusao");
+        sbResumePage.updateResume();
 
-        realAppPage.deleteTransaction();
+        sbResumePage.swipeTransactionLeftAndDelete("Movimentacao 3, calculo saldo");
 
         assertTrue(menuPage.elementExistsByText("Movimentação removida com sucesso!"));
 
-        realAppPage.changeToHomeTab();
+        sbMenuPage.changeToHomeTab();
 
         waitFor(2500);
 
-        realAppPage.updateHomeBalance();
+        sbHomePage.updateHomeBalance();
 
-        assertFalse(menuPage.elementExistsByText("Conta para movimentacoes"));
+        assertEquals("-1000.00", sbHomePage.getBalanceFromAccount("Conta para saldo"));
+    }
+
+    @AfterEach
+    public void tearDown() {
+        sbMenuPage.changeToHomeTab();
+        realAppPage.resetData();
     }
 }
