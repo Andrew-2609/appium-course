@@ -1,10 +1,6 @@
 package appium.page;
 
 import appium.core.BasePage;
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.touch.LongPressOptions;
-import io.appium.java_client.touch.offset.ElementOption;
 import org.openqa.selenium.By;
 
 import static appium.core.DriverFactory.getDriver;
@@ -27,8 +23,7 @@ public class RealAppPage extends BasePage {
     }
 
     public void selectAccount(String accountName) {
-        MobileElement element = getDriver().findElement(By.xpath("//android.widget.TextView[@text='" + accountName + "']"));
-        new TouchAction<>(getDriver()).longPress(LongPressOptions.longPressOptions().withElement(ElementOption.element(element))).perform();
+        longClick(By.xpath("//android.widget.TextView[@text='" + accountName + "']"));
     }
 
     public void deleteAccount() {
