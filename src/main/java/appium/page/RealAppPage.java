@@ -3,8 +3,6 @@ package appium.page;
 import appium.core.BasePage;
 import org.openqa.selenium.By;
 
-import static appium.core.DriverFactory.getDriver;
-
 public class RealAppPage extends BasePage {
     public void setLoginName(String value) {
         type(By.xpath("//*[@text='Nome']"), value);
@@ -20,11 +18,6 @@ public class RealAppPage extends BasePage {
 
     public void resetData() {
         clickByText("RESET");
-    }
-
-    public void swipeTransactionLeft(String transactionName) {
-        int transactionYCoordinate = getDriver().findElement(By.xpath("//*[@text='" + transactionName + "']/../..")).getCenter().y;
-        swipeAt(0.9, 0.1, transactionYCoordinate);
     }
 
     public void deleteTransaction() {
