@@ -20,10 +20,6 @@ public class RealAppPage extends BasePage {
         clickByText("RESET");
     }
 
-    public void deleteTransaction() {
-        clickByText("Del");
-    }
-
     public void updateHomeBalance() {
         scroll(0.2, 0.9);
     }

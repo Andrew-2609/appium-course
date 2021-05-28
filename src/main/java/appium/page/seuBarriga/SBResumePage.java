@@ -10,8 +10,9 @@ public class SBResumePage extends BasePage {
         clickByText("ATUALIZAR");
     }
 
-    public void swipeTransactionLeft(String transactionName) {
+    public void swipeTransactionLeftAndDelete(String transactionName) {
         int transactionYCoordinate = getDriver().findElement(By.xpath("//*[@text='" + transactionName + "']/../..")).getCenter().y;
         swipeAt(0.9, 0.1, transactionYCoordinate);
+        clickByText("Del");
     }
 }
