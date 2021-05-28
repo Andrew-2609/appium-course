@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class RealAppTest extends BaseTest {
+public class SBNativeTest extends BaseTest {
     private final MenuPage menuPage = new MenuPage();
     private final RealAppPage realAppPage = new RealAppPage();
     private final SBMenuPage sbMenuPage = new SBMenuPage();
