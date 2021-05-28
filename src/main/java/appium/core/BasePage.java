@@ -2,7 +2,9 @@ package appium.core;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.LongPressOptions;
 import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -120,5 +122,16 @@ public class BasePage {
 
     public void swipeRight() {
         swipe(0.9, 0.1);
+    }
+
+    public void longClick(By by) {
+        new TouchAction<>(
+                getDriver())
+                .longPress(LongPressOptions.longPressOptions().withElement(getElementOption(by)))
+                .perform();
+    }
+
+    public ElementOption getElementOption(By by) {
+        return ElementOption.element(getDriver().findElement(by));
     }
 }
