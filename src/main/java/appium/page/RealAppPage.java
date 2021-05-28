@@ -19,8 +19,4 @@ public class RealAppPage extends BasePage {
     public void resetData() {
         clickByText("RESET");
     }
-
-    public void updateHomeBalance() {
-        scroll(0.2, 0.9);
-    }
 }
