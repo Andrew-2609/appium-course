@@ -14,4 +14,8 @@ public class SBMenuPage extends BasePage {
     public void changeToResumeTab() {
         clickByText("RESUMO");
     }
+
+    public void changeToHomeTab() {
+        clickByText("HOME");
+    }
 }

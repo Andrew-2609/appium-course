@@ -31,10 +31,6 @@ public class RealAppPage extends BasePage {
         clickByText("Del");
     }
 
-    public void changeToHomeTab() {
-        clickByText("HOME");
-    }
-
     public void updateHomeBalance() {
         scroll(0.2, 0.9);
     }
