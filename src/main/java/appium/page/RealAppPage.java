@@ -11,11 +11,11 @@ import static appium.core.DriverFactory.getDriver;
 
 public class RealAppPage extends BasePage {
     public void setLoginName(String value) {
-        getDriver().findElement(By.xpath("//*[@text='Nome']")).sendKeys(value);
+        type(By.xpath("//*[@text='Nome']"), value);
     }
 
     public void setLoginPassword(String value) {
-        getDriver().findElement(By.xpath("//*[@text='Senha']")).sendKeys(value);
+        type(By.xpath("//*[@text='Senha']"), value);
     }
 
     public void login() {
@@ -31,7 +31,7 @@ public class RealAppPage extends BasePage {
     }
 
     public void setAccountName(String value) {
-        getDriver().findElement(By.xpath("//android.widget.EditText[@text='Conta']")).sendKeys(value);
+        type(By.xpath("//android.widget.EditText[@text='Conta']"), value);
     }
 
     public void saveAccount() {
@@ -56,15 +56,15 @@ public class RealAppPage extends BasePage {
     }
 
     public void setTransactionDescription(String value) {
-        getDriver().findElement(By.xpath("//*[@text='Descrição']")).sendKeys(value);
+        type(By.xpath("//*[@text='Descrição']"), value);
     }
 
     public void setTransactionInterested(String value) {
-        getDriver().findElement(By.xpath("//*[@text='Interessado']")).sendKeys(value);
+        type(By.xpath("//*[@text='Interessado']"), value);
     }
 
     public void setTransactionValue(String value) {
-        getDriver().findElement(By.xpath("//*[@text='Valor']")).sendKeys(value);
+        type(By.xpath("//*[@text='Valor']"), value);
     }
 
     public void setTransactionAccount() {
